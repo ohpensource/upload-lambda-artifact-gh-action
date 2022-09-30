@@ -39,5 +39,16 @@ runs:
   using: "composite"
   steps:
     - id: upload-lambda-artifact
-      run: ${{ github.action_path }}/upload-lambda-artifact.sh ${{ inputs.region }} ${{ inputs.access-key }} ${{ inputs.secret-key }} ${{ inputs.account }} ${{ inputs.role-name }} ${{ inputs.version }} ${{ inputs.service-name }} ${{ inputs.function-project-name }} ${{ inputs.artifact-folder }} ${{ inputs.s3-bucket }}
       shell: bash
+      run: |
+        ${{ github.action_path }}/upload-lambda-artifact.sh \
+          "${{ inputs.region }}" \
+          "${{ inputs.access-key }}" \
+          "${{ inputs.secret-key }}" \
+          "${{ inputs.account }}" \
+          "${{ inputs.role-name }}" \
+          "${{ inputs.version }}" \
+          "${{ inputs.service-name }}" \
+          "${{ inputs.function-project-name }}" \
+          "${{ inputs.artifact-folder }}" \
+          "${{ inputs.s3-bucket }}"
