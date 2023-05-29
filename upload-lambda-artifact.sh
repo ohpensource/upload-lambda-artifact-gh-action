@@ -59,4 +59,4 @@ S3_DESTINATION="s3://$BUCKET_NAME/artifacts/$SERVICE_NAME/$VERSION/$SERVICE_NAME
 log_key_value_pair "s3-destination" $S3_DESTINATION
 aws s3 cp $ARTIFACT_PATH $S3_DESTINATION
 
-echo "::set-output name=s3_destination_key::${S3_DESTINATION}"
+echo "s3_destination_key=$S3_DESTINATION"  >> $GITHUB_OUTPUT
